@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="app.js" /></script>
+    <script src="controller.js" /></script>
+
+</head>
+
+<body>
+    <div ng-controller="myCtrl">
+
+
+        <form>
+            <table>
+                    <tr>
+                            <td>
+                                Id
+                            </td>
+                            <td>
+                                
+                                <input type="text" ng-model="newcontact.id" />
+                               
+                            </td>
+
+                        </tr>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        <input type="text" ng-model="newcontact.name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Desigination
+                    </td>
+                    <td>
+                        <input type="text"  ng-model="newcontact.desigination" />
+                        <br>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br/>
+            <input type="button" value="Save" ng-click="saveContact(newcontact.id)" />
+            
+        </form>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in contacts">
+                    <td>{{ x.name }}</td>
+                    <td>{{ x.desigination }}</td>
+                    <td>
+                        <a href="javascript:void(0)" ng-click="getContact(x.id)">edit</a> |
+                        <a href="javascript:void(0)" ng-click="deleteContact(x.id)">delete</a>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
